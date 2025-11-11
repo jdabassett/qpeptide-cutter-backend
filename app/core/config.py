@@ -26,7 +26,9 @@ def get_env_file() -> str:
     return ".env"
 
 
-def load_aws_secrets(secret_name: str, region_name: str = None) -> dict[str, str]:
+def load_aws_secrets(
+    secret_name: str, region_name: str | None = None
+) -> dict[str, str]:
     """
     Load secrets from AWS Secrets Manager.
 
