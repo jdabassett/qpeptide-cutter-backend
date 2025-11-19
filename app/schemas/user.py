@@ -12,9 +12,9 @@ class UserCreate(BaseModel):
 
     @field_validator("username")
     def validate_username(cls, v):
-        if not re.match(r"^[A-Za-z0-9_-]+$", v):
+        if not re.match(r"^[A-Za-z0-9_ -]+$", v):
             raise ValueError(
-                "Username may only contain letters, numbers, underscores, and hyphens."
+                "Username may only contain letters, numbers, underscores, hyphens, and spaces."
             )
         return v
 

@@ -14,6 +14,7 @@ dependencies = [
     "alembic (>=1.17.1,<2.0.0)",
     "pydantic (>=2.12.3,<3.0.0)",
     "pydantic-settings (>=2.11.0,<3.0.0)",
+    "email-validator (>=2.0.0,<3.0.0)",
     "httpx (>=0.28.1,<0.29.0)",
     "arq (>=0.26.3,<0.27.0)",
     "pymysql (>=1.1.2,<2.0.0)",
