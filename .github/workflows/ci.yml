@@ -210,8 +210,8 @@ jobs:
           IMAGE_SIZE=$(docker images qpeptide-cutter-backend:test --format "{{.Size}}")
           echo "Image size: $IMAGE_SIZE"
 
-          # Verify working directory
-          docker run --rm qpeptide-cutter-backend:test pwd | grep -q "/app" && echo "Working directory correct"
+          # Verify working directory (bypass entrypoint - we don't need MySQL for this)
+          docker run --rm --entrypoint="" qpeptide-cutter-backend:test pwd | grep -q "/app" && echo "Working directory correct"
 
-          # Verify Python version
-          docker run --rm qpeptide-cutter-backend:test python --version | grep -q "Python 3.13" && echo "Python version correct"
+          # Verify Python version (bypass entrypoint - we don't need MySQL for this)
+          docker run --rm --entrypoint="" qpeptide-cutter-backend:test python --version | grep -q "Python 3.13" && echo "Python version correct"
