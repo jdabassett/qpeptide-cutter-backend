@@ -18,7 +18,7 @@ wait_for_mysql() {
 
     while [ $attempt -le $max_attempts ]; do
         # Simple root connection test (no app config needed)
-        if python3 << PYTHON_SCRIPT
+        if python3 << 'PYTHON_SCRIPT'
 import os
 import sys
 from sqlalchemy import create_engine, text
@@ -48,7 +48,7 @@ PYTHON_SCRIPT
 
     echo "❌ MySQL server not ready after $max_attempts attempts"
     echo "💡 Last error:"
-    python3 << PYTHON_SCRIPT
+    python3 << 'PYTHON_SCRIPT'
 import os
 from sqlalchemy import create_engine, text
 root_password = os.getenv('MYSQL_ROOT_PASSWORD', 'rootpassword')
@@ -73,7 +73,7 @@ create_database_if_needed() {
 
     echo "🗄️  Ensuring database exists and user has permissions (local development)..."
 
-    python3 << PYTHON_SCRIPT
+    python3 << 'PYTHON_SCRIPT'
 import os
 from sqlalchemy import create_engine, text
 
